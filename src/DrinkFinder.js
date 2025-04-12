@@ -113,7 +113,7 @@ export default function DrinkFinder() {
 
             <Box sx={{display: 'flex', flexDirection: {xs: 'column', md: 'row'}, gap: 3}}>
                 {/* Left section: Find Drinks by Ingredients */}
-                <Box sx={{flex: 1, border: 1, borderRadius: 2, padding: 3, boxShadow: 2}}>
+                <Box sx={{flex: 1, border: 1, borderRadius: 2, padding: 3, boxShadow: 2, backgroundColor: '#FFFFFF'}}>
                     <h2>Find Drinks by Ingredients</h2>
                     <Box sx={{marginBottom: 2}}>
                         {ingredients.map((ing) => (
@@ -168,7 +168,7 @@ export default function DrinkFinder() {
                 </Box>
 
                 {/* Right section: Find Ingredients for a Drink */}
-                <Box sx={{flex: 1, border: 1, borderRadius: 2, padding: 3, boxShadow: 2}}>
+                <Box sx={{flex: 1, border: 1, borderRadius: 2, padding: 3, boxShadow: 2, backgroundColor: '#FFFFFF'}}>
                     <h2>Find Ingredients for a Drink</h2>
                     <Box sx={{marginBottom: 2}}>
                         <InputLabel id="select-drink-label">Select a Drink</InputLabel>
