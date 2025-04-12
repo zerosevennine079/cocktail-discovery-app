@@ -8,6 +8,7 @@ export default function DrinkFinder() {
     const [selectedDrink, setSelectedDrink] = useState("");
     const [drinkResults, setDrinkResults] = useState([]);
     const [ingredientResults, setIngredientResults] = useState([]);
+    const [instructionResults, setInstructionResults] = useState('');
 
     useEffect(() => {
         fetch("/api/listDrinks")
@@ -58,6 +59,7 @@ export default function DrinkFinder() {
                 .then((data) => {
                     if (Array.isArray(data.ingredients)) {
                         setIngredientResults(data.ingredients);
+                        setInstructionResults(data.instructions);
                     } else {
                         console.error("Unexpected format for /api/getIngredients:", data);
                     }
@@ -148,6 +150,7 @@ export default function DrinkFinder() {
                                         primary={drink.drink_name}
                                         secondary={
                                             <List>
+                                                <ListItemText primary={drink.instructions}></ListItemText>
                                                 {drink.ingredients.map((ingredient) => (
                                                     <ListItem key={ingredient.ingredient_id}>
                                                         <ListItemText
@@ -192,6 +195,7 @@ export default function DrinkFinder() {
                         <p>No ingredients found.</p>
                     ) : (
                         <List>
+                            <ListItemText>{instructionResults}</ListItemText>
                             {ingredientResults.map((ing) => (
                                 <ListItem key={ing.id}>
                                     <ListItemText
